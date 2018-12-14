@@ -1,0 +1,216 @@
+$ex = implode('', $lines);
+            if (strpos($ex, 'LONGEVITY') !== false || strpos($ex, 'longevity') !== false || strpos($ex, 'Longevity') !== false) {
+                $tf = 'longevity';
+            } elseif (strpos($ex, 'HAZARD') !== false || strpos($ex, 'hazard') !== false || strpos($ex, 'Hazard') !== false) {
+                $tf = 'hazard';
+            } elseif (strpos($ex, 'SUBSISTENCE') !== false || strpos($ex, 'subsistence') !== false || strpos($ex, 'Subsistence') !== false) {
+                $tf = 'sublau';
+            } else {
+                $tf = 'not';
+            }
+            //echo $tf; 
+            $tmp = array();
+            while (($data = fgetcsv($file, 10000, ",")) !== FALSE) {
+                $tmp[] = $data;
+                //$data = explode(";", $line);
+                if (is_numeric($data[0])) {
+                    
+                    $date = $_POST['year'] . '-' . $_POST['month'] . '-01';
+                    $bdate = date("Y-m-d", strtotime($_POST['bdate']));
+                    
+                    if ($_POST['bene'] == 'sublau') {
+                        if ($data[3] != "") {
+                            $sql = mysql_query("SELECT * FROM table_otherbenefits WHERE Date_covered = '$date' AND Emp_no = '$data[3]'");
+                            $num = mysql_num_rows($sql);
+
+                            $emp_no = str_replace(' ', '', $data[3]);
+
+                            if (!empty($data[4])) {
+                                $d1 = number_format(str_replace(' ', '', (str_replace(',', '', $data[4]))), 2);
+                            } else {
+                                $d1 = '';
+                            }
+                            if (!empty($data[5])) {
+                                $d2 = number_format(str_replace(' ', '', (str_replace(',', '', $data[5]))), 2);
+                            } else {
+                                $d2 = '';
+                            }
+                            if (!empty($data[7])) {
+                                $d3 = number_format(str_replace(' ', '', (str_replace(',', '', $data[7]))), 2);
+                            } else {
+                                $d3 = '';
+                            }
+                            $idd = "tax";
+                            $ar = searchForId($idd, $tmp[7]) + 1;
+                            $arra = array();
+                            for ($i = 6; $i < $ar; $i++) {
+//                                echo $data[$i] . ' - ' . $tmp[8][$i] . '<br>';
+                                if(stripos($tmp[7][$i], 'total') !== false) {
+                                    
+                                } else {
+                                    array_push($arra, $data[$i] . ' ~ ' . $tmp[7][$i]);
+                                }
+                                
+                            }
+                            $arrayCount = count($arra);
+                            $deduc = '';
+                            for ($i = 0; $i < $arrayCount; $i++) {
+                                if ($i == $arrayCount - 1){
+                                    $deduc .= $arra[$i];
+                                } else {
+                                    $deduc .= $arra[$i] . ' + ';
+                                }
+                            }
+                            
+                            if ($tf == 'sublau') {
+                                if ($num == 0) {
+                                    $result = mysql_query("INSERT INTO table_otherbenefits() VALUES (NULL,'$date','$emp_no','','','','','','','','','$bdate','$d1','$d2','$deduc','')");
+                                    if (!$result) {
+                                        die('Invalid query: ' . mysql_error());
+                                    }
+                                } elseif ($num > 0) {
+                                    $result = mysql_query("UPDATE table_otherbenefits SET Sublau_date = '$bdate', Subsistence_allowance = '$d1', Laundry_allowance = '$d2', Sublau_withtax = '$deduc' WHERE Date_covered = '$date' AND Emp_no = '$emp_no'");
+                                    if (!$result) {
+                                        die('Invalid query: ' . mysql_error());
+                                    }
+                                }
+                            }
+                        }
+                    } elseif ($_POST['bene'] == 'lon') {
+                        if ($data[3] != '') {
+                            $sql = mysql_query("SELECT * FROM table_otherbenefits WHERE Date_covered = '$date' AND Emp_no = '$data[3]'");
+                            $num = mysql_num_rows($sql);
+
+                            $emp_no = str_replace(' ', '', $data[3]);
+                            
+                            if (!empty($data[4])) {
+                                $d1 = number_format(str_replace(' ', '', (str_replace(',', '', $data[4]))), 2);
+                            } else {
+                                $d1 = '';
+                            }
+                            if (!empty($data[5])) {
+                                $d2 = number_format(str_replace(' ', '', (str_replace(',', '', $data[5]))), 2);
+                            } else {
+                                $d2 = '';
+                            }
+                            
+                            $idd = "tax";
+                            $ar = searchForId($idd, $tmp[8]) + 1;
+                            $arra = array();
+                            for ($i = 5; $i < $ar; $i++) {
+//                                echo $data[$i] . ' - ' . $tmp[8][$i] . '<br>';
+                                array_push($arra, $data[$i] . ' ~ ' . $tmp[8][$i]);
+                            }
+                            $arrayCount = count($arra);
+                            $deduc = '';
+                            for ($i = 0; $i < $arrayCount; $i++) {
+                                if ($i == $arrayCount - 1){
+                                    $deduc .= $arra[$i];
+                                } else {
+                                    $deduc .= $arra[$i] . ' + ';
+                                }
+                            }
+                            
+                            
+                            if ($tf == 'longevity') {
+                                if ($num == 0) {
+                                    //echo '<tr><td>' . $data[3] . '</td><td>' . $data[4] . '</td><td>' . $data[5] . '</td></tr>';
+                                    $result = mysql_query("INSERT INTO table_otherbenefits() VALUES (NULL,'$date','$emp_no','$bdate','$d1','$deduc','','','','','','','','','','')") or die(mysql_error());
+                                    if (!$result) {
+                                        die('Invalid query: ' . mysql_error());
+                                    }
+                                } elseif ($num > 0) {
+                                    //echo '<tr><td>' . $data[3] . '</td><td>' . $data[4] . '</td><td>' . $data[5] . '</td></tr>';
+                                    $result = mysql_query("UPDATE table_otherbenefits SET Longevity_date = '$bdate', Longevity_pay = '$d1', Longevity_withtax = '$deduc' WHERE Date_covered = '$date' AND Emp_no = '$emp_no'") or die(mysql_error());
+                                    if (!$result) {
+                                        die('Invalid query: ' . mysql_error());
+                                    }
+                                }
+                            }
+                        }
+                    } elseif ($_POST['bene'] == 'haz') {
+                        if ($data[3] != '') {
+                            $sql = mysql_query("SELECT * FROM table_otherbenefits WHERE Date_covered = '$date' AND Emp_no = '$data[3]'");
+                            $num = mysql_num_rows($sql);
+                            
+                            $emp_no = str_replace(' ', '', $data[3]);
+                            
+                            if (!empty($data[4])) {
+                                $d1 = number_format(str_replace(' ', '', (str_replace(',', '', $data[4]))), 2);
+                            } else {
+                                $d1 = '';
+                            }
+                            if (!empty($data[8])) {
+                                $d2 = number_format(str_replace(' ', '', (str_replace(',', '', $data[8]))), 2);
+                            } else {
+                                $d2 = '';
+                            }
+
+                            $idd = "tax";
+                            $ar = searchForId($idd, $tmp[8]) + 1;
+                            $arra = array();
+                            for ($i = 5; $i < $ar; $i++) {
+//                                echo $data[$i] . ' - ' . $tmp[8][$i] . '<br>';
+                                array_push($arra, $data[$i] . ' ~ ' . $tmp[8][$i]);
+                            }
+                            $arrayCount = count($arra);
+                            $deduc = '';
+                            for ($i = 0; $i < $arrayCount; $i++) {
+                                if ($i == $arrayCount - 1){
+                                    $deduc .= $arra[$i];
+                                } else {
+                                    $deduc .= $arra[$i] . ' + ';
+                                }
+                            }
+                            
+                            if ($tf == 'hazard') {
+                                if ($num == 0) {
+                                    //echo '<tr><td>' . $data[3] . '</td><td>' . $data[4] . '</td><td>' . $data[8] . '</td></tr>';
+                                    $result = mysql_query("INSERT INTO table_otherbenefits() VALUES (NULL,'$date','$emp_no','','','','','$bdate','$d1','$deduc','','','','','','')")or die(mysql_error());
+                                    if (!$result) {
+                                        die('Invalid query: ' . mysql_error());
+                                    }
+                                } elseif ($num > 0) {
+                                    //echo '<tr><td>' . $data[3] . '</td><td>' . $data[4] . '</td><td>' . $data[8] . '</td></tr>';
+                                    $result = mysql_query("UPDATE table_otherbenefits SET Hazard_date = '$bdate', Hazard_pay = '$d1', Hazard_withtax = '$deduc' WHERE Date_covered = '$date' AND Emp_no = '$emp_no'")or die(mysql_error());
+                                    if (!$result) {
+                                        die('Invalid query: ' . mysql_error());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                //echo '</tr>';
+            }
+//            echo '<pre>';
+//            print_r($tmp);
+//            echo '</pre>';
+
+
+            if ($_POST['bene'] == 'sublau') {
+                if ($tf == 'sublau') {
+                    $_SESSION['HRIS_INDICATOR'] = "TRUE";
+                } elseif ($tf != 'sublau') {
+                    $_SESSION['HRIS_INDICATOR'] = "FALSE3";
+                }
+            } elseif ($_POST['bene'] == 'lon') {
+                if ($tf == 'longevity') {
+                    $_SESSION['HRIS_INDICATOR'] = "TRUE";
+                } elseif ($tf != 'longevity') {
+                    $_SESSION['HRIS_INDICATOR'] = "FALSE4";
+                }
+            } elseif ($_POST['bene'] == 'haz') {
+                if ($tf == 'hazard') {
+                    $_SESSION['HRIS_INDICATOR'] = "TRUE";
+                } elseif ($tf != 'HAZARD') {
+                    $_SESSION['HRIS_INDICATOR'] = "FALSE5";
+                }
+            }
+        } else {
+            $_SESSION['HRIS_INDICATOR'] = "FALSE";
+        }
+    } elseif (empty($_FILES['file']['name'])) {
+        $_SESSION['HRIS_INDICATOR'] = "FALSE2";
+    }
+    echo '</table>';

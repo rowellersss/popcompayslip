@@ -1,0 +1,67 @@
+@page {
+    size: auto;
+    margin: 0mm;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.header1 {
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 80px;
+    text-align: center;
+    font-family: Arial;
+}
+.header2 {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: -15px;
+    font-family: Arial;
+}
+
+.header3 {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial;
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+td {
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+span {
+    padding-bottom:2px;
+    display:inline-block;
+    border-top :1px solid black;
+}
+.span2 {
+    padding-bottom:2px;
+    display:inline-block;
+    border: 1.5px solid black;
+}
+
+.footer {
+    padding-top: -10px;
+    font-weight: bold;
+    font-size: 11.5px;
+    font-family: Arial;
+}
+
+.trans {
+    padding-top: 15px;
+    padding-right: -75px;
+    text-align: right;
+    font-size: 9px;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}

@@ -1,0 +1,216 @@
+@page 
+{
+    size: auto;   /* auto is the initial value */
+    margin: 5mm;  /* this affects the margin in the printer settings */
+    margin-top: -15px;
+    margin-bottom: -70px;
+}
+
+/*.tableOne {
+    width: 45%;
+    margin-top: 20px;
+}
+
+table.tableOne td {
+    padding-left: 5px;
+    border: 1px solid black;
+}*/
+html, body {
+    background-color: white;
+    height: 100%;
+}
+
+table, th, td {
+    border: 1px solid #303030;
+}
+
+table {
+    width: 100%;
+    font-size: 9.5px;
+    line-height: 15px;
+    border: 1px solid #303030;
+    border-collapse: collapse;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}
+.tdfont {
+    padding-left: 10px;
+    font-size: 9.5px;
+}
+td {
+    font-size: 8px;
+    padding-top: 2px;
+    padding-bottom: 2.8px;
+}
+
+.tdfont {
+    padding-left: 10px;
+    font-size: 9.5px;
+}
+.tdfontt {
+    padding-left: 10px;
+    font-size: 10px;
+}
+.tdfont2 {
+    font-size: 9px;
+    line-height: 12px;
+}
+.tdfont3 {
+    font-size: 9px;
+    text-align: center;
+}
+.tdfont4 {
+    border: none;
+    font-size: 12px;
+    line-height: 19px;
+    padding-left: 10px;
+}
+.tdfont5 {
+    font-size: 12px;
+    line-height: 19px;
+    text-align: center;
+    padding-left: 10px;
+    border: .2px solid #000;
+}
+.text1 {
+    margin-left: 200px;
+    width: 65%;
+    padding: 0px;
+}
+.text2 {
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+    font-size: 13px;
+    text-align: center;
+    margin-top: -70px;
+    margin-left: -60px;
+    float: right;
+    font-weight: 600;
+}
+.data {
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+    padding-left: 100px;
+    font-size: 13.5px;
+}
+
+.mrightcol {
+    float: right;
+    display: inline-block;
+    margin-right: -30px;
+    width: 51%;
+    height: 100%;
+}
+.mleftcol {
+    float: left;
+    display: inline-block;
+    width: 49%;
+    height: 100px;
+}
+.rightcol {
+    float: right;
+    display: block;
+    margin-right: -60px;
+    width: 60%;
+    height: 450px;
+}
+.leftcol {
+    float: left;
+    display: inline-block;
+    width: 50%;
+}
+.rightcol2 {
+    float: right;
+    display: block;
+    margin-right: -60px;
+    width: 60%;
+    height: 450px;
+}
+.leftcol2 {
+    float: left;
+    display: inline-block;
+    width: 45%;
+}
+.header1 {
+    float: right;
+    text-align: left;
+    margin-right: 37px;
+    width: 590px;
+    padding-top: 25px
+}
+.header2 {
+    float: left;
+    padding-top: 15px;
+    padding-left: 10px;
+    width: 130px;
+    text-align: right;
+}
+.headText1 {
+    font-family: "Minion Pro Med", Times, serif;
+    font-size: 14px;
+}
+.headText2 {
+    font-family: "Minion Pro Med", Times, serif;
+    font-size: 14px;
+    margin-top: -35px;
+}
+.headText3 {
+    font-family: "Minion Pro Med", Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: -30px;
+    border-top: 4px solid black;
+}
+.headText4 {
+    font-family: "Minion Pro Med", Times, serif;
+    font-size: 14px;
+    margin-top: -40px;
+    font-style: italic;
+    letter-spacing: 4.5px;
+}
+
+.footerText1 {
+    font-family: "Minion Pro Med", Times, serif;
+    font-size: 14.6px;
+    margin-top: 5px;
+}
+.footerText2 {
+    font-family: "Minion Pro Med", Times, serif;
+    font-size: 14.6px;
+    margin-top: -18px;
+}
+.footerText3{
+    font-family: "Minion Pro Med", Times, serif;
+    font-size: 14.6px;
+    margin-top: -18px;
+    vertical-align: top;
+}
+header {
+    height: 90px;
+    background-color: blue;
+}
+footer {
+    height: 90px;
+    text-align: center;
+    background-color: red
+}
+.footer {
+    position: fixed;
+    text-align: center;
+    left: 0px;
+    bottom: 0px;
+    height: 80px;
+    width: 100%;
+}
+.vr {
+    width: 1px;
+    background-color: #9E9E9E;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 565px;
+}
+
+div.image {
+    background-image: url(../images/watermark.png);
+    background-repeat: no-repeat;
+}
+
+

@@ -1,0 +1,48 @@
+@page 
+{
+    size: auto;   /* auto is the initial value */
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.fpTable {
+     width: 100%;
+     height: 100%;
+     border-collapse: collapse;
+     border: 3px solid black;
+}
+.fpTable tr td{
+     border: 3px solid black;
+}
+
+.fpTable2{
+     width: 100%;
+     height: 100%;
+     table-layout: fixed;
+     border-collapse: collapse;
+}
+.fpTable2 tr td{
+     border: 1.5px solid black;
+}
+
+.first-half {
+    float: left;
+    width: 49%;
+    background-color: red;
+}
+.second-half {
+    float: right;
+    width: 50%;
+    background-color: yellow;
+}
+
+.row {
+  width: 100%;
+  margin: 0 auto;
+}
+.block {
+  width: 100px;
+  float: left;
+}

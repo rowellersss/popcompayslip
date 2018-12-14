@@ -1,0 +1,75 @@
+@page 
+{
+    size: auto;   /* auto is the initial value */
+    margin: 5mm;  /* this affects the margin in the printer settings */
+    margin-bottom: -70px;
+    margin-left: 120px;
+    margin-right: 120px;
+}
+table{
+    width: 100%;
+    margin-top: 8px;
+    font-size: 11px;
+    border-collapse: collapse;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}
+.header{
+    text-align: center;
+}
+.head1 {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}
+.head2 {
+    font-size: 10.5px;
+    font-weight: bold;
+    font-style: italic;
+    padding-top: -18px;
+    letter-spacing: .1px;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}
+.head3 {
+    font-weight: bold;
+    font-size: 10.5px;
+    letter-spacing: .5px;
+    text-decoration: underline;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}
+.trans {
+    padding-top: -40px;
+    padding-right: -100px;
+    text-align: right;
+    font-size: 9px;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}
+.csc {
+    font-size: 9px;
+    margin-top: 10px;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}
+.details{
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 14px;
+    border-top: 1px solid black;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}
+.details2{
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid black;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}
+.inst {
+    font-size: 9px;
+    font-weight: bold;
+    margin-top: -10px;
+    text-align: center;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}
+.footer {
+    font-size: 9px;
+    padding-top: -5px;
+    font-family: Arial, "Arial", Helvetica, sans-serif;
+}

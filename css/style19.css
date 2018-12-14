@@ -1,0 +1,253 @@
+@page 
+{
+    size: auto;   /* auto is the initial value */
+    margin: 0mm;  /* this affects the margin in the printer settings */
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.header1 {
+    font-size: 13px;
+    font-weight: bold;
+    padding-top: 25px;
+    text-align: center;
+    letter-spacing: .5px;
+}
+.header2 {
+    font-size: 13px;
+    text-align: center;
+    padding-top: -15px;
+}
+.infoDiv {
+    width: 65%;
+    float: left;
+    font-size: 14px;
+    display: inline-block;
+}
+.infoDiv2 {
+    width: 30%;
+    float: right;
+    font-size: 14px;
+    display: inline-block;
+}
+.info {
+    font-size: 13px;
+    line-height: 7px;
+}
+.Sheader1 {
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: .5px;
+}
+.Sheader2 {
+    font-size: 13px;
+    text-align: center;
+    padding-top: -15px;
+}
+.instHead {
+    font-size: 13px;
+    padding-top: -10px; 
+}
+.instCont {
+    font-size: 11px;
+    padding-top: -15px;
+    
+}
+.instDiv {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 90%;
+    margin-left: 20px;
+    border: 1.5px solid black;
+}
+.instDivO {
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1.5px solid black;
+}
+
+.tableBody {
+    width: 100%;
+    margin-top: 5px;
+    line-height: 12.5px;
+    font-size: 11.5px;
+    text-align: center; 
+    border-collapse: collapse;
+}
+.tableBody tr td:nth-child(1) {
+    width: 35%;
+    vertical-align: top;
+    text-align: justify;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-justify: inter-word;
+}
+.tableBody tr td:nth-child(2),
+   td:nth-child(3),
+   td:nth-child(4),
+   td:nth-child(5),
+   td:nth-child(6){
+    width: 13%;
+    text-align: center;
+    vertical-align: top;
+}
+.footLeft {
+    width: 37%;
+    float: left;
+    display: inline-block;
+}
+.footerRight {
+    width: 52%;
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+    display: inline-block;
+}
+.tableFooter {
+    width: 100%; 
+    text-align: center;
+    border-collapse: collapse;
+}
+.tableFooter2 {
+    width: 100%; 
+    text-align: center;
+    font-size: 13px;
+    border-collapse: collapse;
+}
+
+.logo p {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+
+
+
+.name2 {
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 70px;
+    letter-spacing: .5px;
+}
+.comp {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.legend {
+    font-size: 14px;
+    line-height: 8px;
+    padding-left: 20px;
+}
+.ple {
+    font-size: 14px;
+}
+.compTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.compTable tr td:nth-child(1) {
+    width: 35%;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+    vertical-align: top;
+    padding-bottom: 10px;
+    text-justify: inter-word;
+}
+.compTable tr td:nth-child(2),
+   td:nth-child(3),
+   td:nth-child(4),
+   td:nth-child(5),
+   td:nth-child(6){
+    width: 13%;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
+.PtableBody {
+    width: 80%;
+    margin-left: 20px;
+    margin-top: 12px;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+.PtableBody tr th:nth-child(1) {
+    width: 80%;
+    font-size: 12px;
+    text-align: left;
+}
+.PtableBody tr th:nth-child(2) {
+    width: 18%;
+    font-size: 12px;
+}
+.instHead2 {
+    font-size: 10px;
+    font-family: Arial;
+    padding-top: -10px; 
+}
+.instCont2 {
+    font-size: 9.5px;
+    font-family: Arial;
+    padding-top: -15px;
+    
+}
+.instP {
+    font-size: 9px;
+    font-family: Arial;
+    text-align: center;
+}
+.instP2 {
+    font-size: 7px;
+    font-family: Arial;
+    vertical-align: top;
+}
+.instLi {
+    font-size: 10.2px;
+    font-family: Arial;
+}
+
+/*div.weekday_time {
+    display:block;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
